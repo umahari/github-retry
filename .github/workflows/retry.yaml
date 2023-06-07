@@ -1,0 +1,26 @@
+
+name: "Retry action using retry step"
+on:
+	# This action is called when this is pushed to github
+	push:
+	# This action can be manually triggered
+	workflow_call:
+jobs:
+    # This name is up to you
+	retry-job:
+		runs-on: "ubuntu-latest"
+		name: My Job
+		steps:
+			- name: Checkout repository
+			  uses: actions/checkout@v3
+
+			- name: Use the reusable workflow
+			  # Use the retry action
+			  uses: nick-fields/retry@v2
+			  with:
+				max_attempts: 3
+				retry_on: error
+				timeout_seconds: 5
+				# You can specify the shell commands you want to retry here
+				command: |
+					echo 'some command that would potentially fail'				
