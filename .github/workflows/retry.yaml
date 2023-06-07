@@ -1,7 +1,7 @@
 name: "Retry action using retry step"
 on:
-  push:
-    - main
+   push:
+       - "*"
 jobs:
     name: 'Retry'
     runs-on: "ubuntu-latest"
