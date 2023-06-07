@@ -1,4 +1,4 @@
-name: "Retry action using retry step"
+name: "Retry action using retry"
 on:
   push:
   
