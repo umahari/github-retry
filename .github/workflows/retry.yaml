@@ -1,12 +1,10 @@
-
 name: "Retry action using retry step"
 on:
   push:
     - main
 jobs:
-    retry-job:
+    name: 'Retry'
     runs-on: "ubuntu-latest"
-    name: My Job
     steps:
      - name: Checkout repository
        uses: actions/checkout@v3
