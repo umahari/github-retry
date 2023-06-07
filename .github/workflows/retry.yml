@@ -1,10 +1,14 @@
 name: "Retry action using retry step"
 on:
-   push:
-       - "*"
+  push:
+  
+  workflow_call:
+  
 jobs:
+  Retry:
     name: 'Retry'
     runs-on: "ubuntu-latest"
+    
     steps:
      - name: Checkout repository
        uses: actions/checkout@v3
@@ -12,7 +16,7 @@ jobs:
        uses: nick-fields/retry@v2
        with:
            max_attempts: 3
-    retry_on: error
-    timeout_seconds: 5
-    command: |
-         echo 'some command that would potentially fail'				
+           retry_on: error
+           timeout_seconds: 5
+           command: |
+              echo 'some command that would potentially fail'				
