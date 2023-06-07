@@ -1,21 +1,18 @@
 
 name: "Retry action using retry step"
 on:
-	# This action is called when this is pushed to github
-	push:
-	 - main
+  push:
+    - main
 jobs:
-    # This name is up to you
-	retry-job:
-		runs-on: "ubuntu-latest"
-		name: My Job
-		steps:
-			- name: Checkout repository
-			  uses: actions/checkout@v3
-
-			- name: Use the reusable workflow
+    retry-job:
+    runs-on: "ubuntu-latest"
+    name: My Job
+    steps:
+     - name: Checkout repository
+       uses: actions/checkout@v3
+     - name: Use the reusable workflow
 			  # Use the retry action
-			  uses: nick-fields/retry@v2
+			uses: nick-fields/retry@v2
 			  with:
 				max_attempts: 3
 				retry_on: error
