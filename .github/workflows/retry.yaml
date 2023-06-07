@@ -11,12 +11,10 @@ jobs:
      - name: Checkout repository
        uses: actions/checkout@v3
      - name: Use the reusable workflow
-			  # Use the retry action
-			uses: nick-fields/retry@v2
-			  with:
-				max_attempts: 3
-				retry_on: error
-				timeout_seconds: 5
-				# You can specify the shell commands you want to retry here
-				command: |
-					echo 'some command that would potentially fail'				
+       uses: nick-fields/retry@v2
+       with:
+	 max_attempts: 3
+	 retry_on: error
+	 timeout_seconds: 5
+	 command: |
+	    echo 'some command that would potentially fail'				
