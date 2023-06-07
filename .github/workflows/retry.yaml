@@ -3,8 +3,7 @@ name: "Retry action using retry step"
 on:
 	# This action is called when this is pushed to github
 	push:
-	# This action can be manually triggered
-	workflow_call:
+	 - main
 jobs:
     # This name is up to you
 	retry-job:
